@@ -1,5 +1,5 @@
 import logger from '#config/logger.js';
-import { jwttoken } from '#utils/jwt.js';
+import { jwtToken } from '#utils/jwt.js';
 
 export const authenticateToken = (req, res, next) => {
   try {
@@ -12,7 +12,7 @@ export const authenticateToken = (req, res, next) => {
       });
     }
 
-    const decoded = jwttoken.verify(token);
+    const decoded = jwtToken.verify(token);
     req.user = decoded;
 
     logger.info(`User authenticated: ${decoded.email} (${decoded.role})`);
